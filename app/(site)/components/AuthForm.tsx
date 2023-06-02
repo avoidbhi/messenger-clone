@@ -1,5 +1,5 @@
 'use client'; //to not treat it as a server component but as a client component
-import Button from "@/app/components/Buttson";
+import Button from "@/app/components/Button";
 import Input from "@/app/components/inputs/input";
 import { useCallback, useState } from "react";
 import { 
@@ -7,7 +7,7 @@ import {
     SubmitHandler, 
     useForm } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
-import { BsGithub } from 'react-icons/bs';
+import { BsGithub, BsGoogle } from 'react-icons/bs';
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -139,8 +139,35 @@ const AuthForm = () => {
                     <div className="mt-6 flex gap-2">
                         <AuthSocialButton 
                             icon={BsGithub}
+                            onClick={() => socialAction('github')}
                         />
+                         <AuthSocialButton 
+                            icon={BsGoogle}
+                            onClick={() => socialAction('google')}
+                        />
+                        
                     </div>
+                    </div>
+
+                    <div className="
+                                    flex
+                                    gap-2
+                                    justify-center
+                                    text-sm
+                                    mt-6
+                                    px-2
+                                    text-gray-500
+                                    ">
+                                        <div>
+                                            {variant === 'LOGIN' ? 'New to Messenger?' : 'Already have ans account?'}
+                                        </div>
+                                        <div 
+                                            onClick={toggleVariant}
+                                            className="underline cursor-pointer"
+                                            >
+                                                {variant === 'LOGIN' ? 'Create an account' : 'Login'}
+                                        </div>
+
                     </div>
                 </div>
             </div>
