@@ -47,8 +47,8 @@ const AuthForm = () => {
 
            if(variant === 'REGISTER')
            {
-            //AXIOS Register
-            axios.post('/api/register')
+            
+            axios.post('/api/register', data)
 
            }
            if (variant === 'LOGIN')
